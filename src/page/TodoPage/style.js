@@ -16,6 +16,7 @@ export const StyledDiv = styled.div`
 export const TaskContainer = styled.div`
   overflow-y: auto;
   min-height: 400px;
+  max-height: 700px;
   padding: 1.5rem;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
