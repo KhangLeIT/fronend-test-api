@@ -48,6 +48,7 @@ const TodoPage = () => {
 
   const fetchDoneTask = async (idTask) => {
     const indexToRemove = userTaskNotDone.findIndex(task => task.id === idTask);
+  
     const getTaskData = userTaskNotDone[indexToRemove];
     getTaskData.completed = true
     const newUserTaskNotDone = [...userTaskNotDone];
@@ -91,24 +92,26 @@ const TodoPage = () => {
               <CardTaskComponent
                 key={Task.id}
                 name={Task.title}
-                namebtn={Task.id}
+                idTask={Task.id}
                 completed={Task.completed}
-                onClick={() => fetchDoneTask(Task.id)}
+                onComplete = {fetchDoneTask}
+               
               />
             ))}
             {userTaskDone.map((Task) => (
               <CardTaskComponent
                 key={Task.id}
                 name={Task.title}
-                namebtn={Task.id}
+                idTask={Task.id}
                 completed={Task.completed}
+                onComplete = {fetchDoneTask}
               />
             ))}
           </>
         )}
       </TaskContainer>
       <div className='container mt-5'>
-        <h4>Done {userTaskDone.length}/{userTaskDone.length+userTaskNotDone.length} Tasks</h4>
+        <h4>Done {userTaskDone.length}/{userTaskDone.length+userTaskNotDone.length} tasks</h4>
       </div>
     </Container>
   );

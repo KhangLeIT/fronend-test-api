@@ -3,13 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Flex } from 'antd';
 
 const CardTaskComponent = (props) => {
-    const { name, completed, onClick } = props;
+    const { name, completed, idTask, onComplete  } = props;
     const [loadings, setLoadings] = useState([]);
+
+    const handleButtonClick = () => {
+        onComplete(idTask); 
+    };
     const enterLoading = (index) => {
         setLoadings((prevLoadings) => {
             const newLoadings = [...prevLoadings];
             newLoadings[index] = true;
             return newLoadings;
+            
         });
         setTimeout(() => {
             setLoadings((prevLoadings) => {
@@ -17,9 +22,10 @@ const CardTaskComponent = (props) => {
                 newLoadings[index] = false;
                 return newLoadings;
             });
-            onClick();
-            
-        }, 2000);
+           
+            handleButtonClick();
+        }, 500);
+        
         
     };
 
