@@ -83,7 +83,7 @@ const TodoPage = () => {
         )}
       </StyledDiv>
       <div>Tasks</div>
-      <TaskContainer>
+      <>
         {userTaskNotDone.length === 0 && userTaskDone.length === 0 ? (
           <DivNoData>No data</DivNoData>
         ) : (
@@ -109,7 +109,7 @@ const TodoPage = () => {
             ))}
           </>
         )}
-      </TaskContainer>
+      </>
       <div className='container mt-5'>
         <h4>Done {userTaskDone.length}/{userTaskDone.length+userTaskNotDone.length} tasks</h4>
       </div>
